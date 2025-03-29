@@ -11,7 +11,8 @@ html{
 /* Image in center at top  */
 .MainPage img {
     height: 200px;
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
     margin-bottom: 0px;
     mix-blend-mode: overlay;
     position: static;
@@ -100,8 +101,8 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh; /* viewport height */
-    width: 100vw;  /*viewport height*/
+    height: 30%; /* viewport height */
+    width: 100%;  /*viewport height*/
     overflow: hidden; 
     position: relative;  
     margin: 20px auto;
