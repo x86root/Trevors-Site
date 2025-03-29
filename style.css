@@ -2,6 +2,12 @@ html{
     background-color: slategray;
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 /* Image in center at top  */
 .MainPage img {
     height: 200px;
