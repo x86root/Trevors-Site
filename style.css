@@ -7,7 +7,8 @@ html{
     font-size: 12px;
   }
     .Sidebar {
-        width: 100px; /*For smaller screens
+        width: 50%; /*For smaller screens */
+        height: auto;
         }
 }
 
