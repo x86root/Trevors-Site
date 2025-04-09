@@ -3,13 +3,19 @@ html{
 }
 
 @media (max-width: 480px) {
-  body {
-    font-size: 12px;
-  }
     .Sidebar {
         width: 50%; /*For smaller screens */
         height: auto;
-        }
+        position: fixed;
+        left: 0;
+        top: 0;
+        overflow-y: auto;
+        z-index: 2;
+    }
+    
+    body {
+    margin-left: 30%;
+  }
 }
 
 /* Image in center at top  */
