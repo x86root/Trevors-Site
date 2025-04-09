@@ -2,10 +2,13 @@ html{
     background-color: slategray;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   body {
-    font-size: 14px;
+    font-size: 12px;
   }
+    .Sidebar {
+        width: 100px; /*For smaller screens
+        }
 }
 
 /* Image in center at top  */
