@@ -4,17 +4,12 @@ html{
 
 @media (max-width: 480px) {
     .Sidebar {
-        width: 20%; /*For smaller screens */
-        height: auto;
-        position: fixed;
-        left: 0;
-        top: 0;
-        overflow-y: auto;
-        z-index: 1;
+        width: 0; 
+        transition: width 0.3s ease;
     }
     
-    body {
-    margin-left: 30%;
+    .Sidebar.open {
+    width: 30%;
   }
 }
 
