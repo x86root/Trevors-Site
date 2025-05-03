@@ -107,7 +107,7 @@ html{
     z-index: 1000;
     border-radius: 5px;
     cursor:pointer;
-    background-color: paleturquoise;
+    background: paleturquoise;
 
     translate: transform 0.3s ease;
 }
