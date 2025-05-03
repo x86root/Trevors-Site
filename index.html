@@ -7,6 +7,49 @@
     <link rel="stylesheet" href ="style.css">
 </head>
 <body>
+
+    <button class="collapBtn">Toggle Sidebar</button>  
+                                        
+    <div id="clockDate"></div>
+    <script>                 /* inline JavaScript, I had thought of doing this for some time, I saw functions on Stack Overflow for mins, days, etc  */
+                                    /*https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date  */
+        
+        function updateClock() {            /* declaring a function in JS. Spaced this way for easier reading*/
+
+            const date = new Date()         /* creates a new Date object from the Date class */
+            const hours = date.getHours().toString().padStart(2,'0');       /* calls the new date object .getHours() which - */
+
+            const mins = date.getMinutes().toString().padStart(2, '0');         /*  -retrieves current Hour, same for mins/secs */
+
+            const seconds = date.getSeconds().toString().padStart(2,'0');     /* .toString() converts to a 2 digit string*/
+
+            const day = date.getDate().toString().padStart(2, '0');       /*getDay = day of the week, getDate() = day of month  */
+
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');     /*Off by one cause it starts at 0(0-11), +1 makes it (1-12)*/                                                                       /*makes it as the normal 1-12 */
+
+                                                                        /* padStart (2 digits long, fills any blank with '0')  */
+
+            const year = date.getFullYear();               /* returns four digit year */                
+
+        const timeString = hours + ":" + mins + ":" + seconds;  /*const var timeString, uses str concatenation to print as one*/
+        const dateString = month + "-" + day + "-" + year;
+
+        document.getElementById("clockDate").innerHTML = timeString + "<br>" + dateString; 
+        /*doc.getElbyID(name of <div>) */   
+        }
+                                            /*innerHTML retrieves the HTML content inside of an element */
+                                            /* pulls variables like C++, use + and "" to concatenate and add between variables */
+
+        /*Updates the clock every second */
+        setInterval(updateClock, 1000);
+
+        /*calls it right after updating to ensure theres no delay */
+        updateClock()
+    </script>
+
+
+
+
     <section class ="MainPage">
     <h1>The beginning</h1> <img src ="jedilinuxpenguin.avif" alt = "WinBlows">
     <br><br>
@@ -24,7 +67,6 @@
     </div>
     <br><br><br>
 
-
     <ul>
     <div class="Sidebar">
         <img src="batman.jpg">
@@ -35,14 +77,48 @@
         <br>
     <a href="codingactivities.html">My Coding Activities</a>
     <br><br>
-    <a href="https://github.com/tbelt890">GitHub Account w/ Code</a>                    
+    <a href="https://github.com/tbelt890">GitHub Account w/ Code</a>                   
     </div>
     </ul>
+
 
 <br><br>
 <section class="Hobbies">
     <h1> Outside of coding and computers: </h1>
 </section>
+
+<script>    /*Same spacing as above JS so I could comment for later  */
+            /* These comments help me when i come back to look at the code and try to fix/add */
+
+    document.addEventListener("DOMContentLoaded", function() {
+        /*adds an 'event listener' to HTML doc. "DOMContent" makes script run ONLY after HTML is loaded   */
+
+        const sidebar = document.querySelector(".Sidebar");
+                        /*document represents Document Object Model, references the entire HTML page (index.html) */
+
+        const sidebtn = document.querySelector(".collapBtn");   /* sets var to be the class collapBtn */
+                            /*querySelector lets you select a class or more complex Selectors - this being the collapBtn class */
+
+        sidebtn.addEventListener("click", function() {
+            /* creates a eventListener for sideBtn this being for mouse click */
+            /* can use other events ie. mousehover*/
+
+            sidebar.classList.toggle("hidden"); /* this toggles the 'hidden' CSS code to close the sidebar */ 
+
+
+            sidebtn.classList.toggle("fall");   /* toggles the animation for sidebtn  */
+
+            setTimeout(()=>{
+                /*delays whatever is in block this one being for the animation */
+                    sidebtn.classList.remove("fall");
+
+            }, 500);  /* delays 500 millisecond, then removes fall from button */ 
+        });       
+                /*when clicking the button, it hides the sidebar and triggers the fall animation */
+
+            /* JavaScript is case sensitive, must ensure proper lower or uppercase even for classes/id's */
+    });      
+</script>
 
 </body>
 </html>
