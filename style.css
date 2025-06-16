@@ -45,7 +45,7 @@ html{
     color: bisque;
 }
 
-/* Sidebar with hyperlinks*/
+
 .topbar {
     display: flex;
     flex-direction: row;
