@@ -1,5 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html{
-    background-color: slategray;
+    background-color: #19215d;
 }
 
 @media (max-width: 480px) {         /* this says if screen size is below 480 pixels, apply this */
@@ -9,15 +14,96 @@ html{
     }
 }
 
-/* Image in center at top  */
-.MainPage img {
+/* Unordered list, used this for the links */
+
+.topbar img{
     height: 200px;
     width: 100%;
     max-width: 250px;
     margin-bottom: 0px;
-    mix-blend-mode: overlay;
+    mix-blend-mode: normal;         /* normal fixes color tinting the image*/
     position: static;
     object-fit: cover;
+}
+
+.topbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Links group for format */
+.topbar a {
+    margin: 50px 0;
+    padding: 10px;
+    background-color: #007fff;
+    color: white;
+    border-radius: 10px;
+    display: block;
+}
+
+.topbar a:hover {
+    color: bisque;
+}
+
+/* Sidebar with hyperlinks*/
+.topbar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    border: 3px solid #324ab2;
+    overflow-y: auto;       /* I believe this allows clicks within the sidebar */
+
+    transform: translatex(0%);
+    transition: transform 0.3s ease;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    
+}
+
+
+/*----------------------------------------------------------------- */
+
+.scrollbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    border-radius: 20px 20px;
+    z-index: 100;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #324ab2;
+    border: 2px solid #000000;
+    box-shadow: 0 0 5px #007fff, 0 0 5px #af08ff;
+    color: azure;
+}
+
+.scrollbtn:hover{
+        box-shadow: 0 0 5px #007fff, 0 0 5px #af08ff,
+                    0 0 25px #007fff, 0 0 50px #af08ff,
+                    0 0 100px #007fff, 0 0 200px #af08ff;
+}
+
+.Intro {
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: blanchedalmond;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.Intro img{
+    height: 10px;
+    width: auto;
 }
 
 .Intro2 {                   /* The intro text, Just sets the margin  */ 
@@ -25,103 +111,36 @@ html{
     }
 
 
-.MainPage {             /* picture, paragraph under picture, this also adjusts the font which .Intro2 uses */
+.mainpage {             /* picture, paragraph under picture, this also adjusts the font which .Intro2 uses */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
     text-align: center;
+    color: blanchedalmond;
 }
 
-#clockDate {                    /* RTC i made through javascript :) */
+.mainpage h1{
+    padding: 100px;
+}
+
+#clockDate {                    /* RTC i made through javascript - mostly a feature for mobile since computers have this by default */
     position: fixed;
     height: auto;
     width: auto;                    /* 'auto' adjusts the width dynamically */
-    top: 10px;
+    top: 90%;
     right: 10px;
     font-size: 17px;
-    color: black;
+    color: #e0e0e0;
     border-style: double;
     border-color: black;
-    background-color: paleturquoise;
+    background-color: #007fff;
     padding: 5px 10px;
     border-radius: 5px;
 
 }
 
 
-/* Unordered list, used this for the links */
-.SideBar ul {
-    list-style-type: none;
-    padding: 0;
-}
 
-/* Links group for format */
-.SideBar a {
-    margin: 50px 0;
-    padding: 20px;
-    background-color: cornflowerblue;
-    color: white;
-    border-radius: 10px;
-    display: block;
-}
-
-.Sidebar a:hover {
-    color: bisque;
-}
-
-/* Sidebar with hyperlinks*/
-.Sidebar {
-    margin-left: 0;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 100vh;
-    color: white;
-    background-color: sienna;
-    padding: 20px;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    border: 5px solid burlywood;
-    overflow-y: auto;       /* I believe this allows clicks within the sidebar */
-
-    transform: translatex(0%);
-    transition: transform 0.3s ease;
-    
-}
-
-.Sidebar img {
-    display: block;
-    margin: 0 5px;
-    margin-top: 30px;
-    width: 100%;
-    height: auto;
-}
-
-.collapBtn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    width: 100px;
-    height: 45px;
-    z-index: 1000;
-    border-radius: 5px;
-    cursor:pointer;
-    background: paleturquoise;
-
-    translate: transform 0.3s ease;
-}
-
-.collapBtn.fall{
-    animation: btnDrop 0.5s ease-in-out;
-}
-
-.Sidebar.hidden {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.AboutBtn{
+.projectbtn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,7 +166,7 @@ html{
     transform: translate(-50%, -50%); /* Adjust placement to truly center */
 }
 
-.AboutBtn:hover{
+.projectbtn:hover{
     animation: Spin 10s linear infinite;
   }
 /*-----------------------------------SIDEBAR UI----------------------------------------------- */
@@ -160,6 +179,7 @@ html{
     overflow: hidden; 
     position: relative;  
     margin: 20px auto;
+    margin-top: 200px;
   }
 
   .container1 img {                     /* The image itself  the above controls the general location */
@@ -169,7 +189,38 @@ html{
     height: 300px;
     z-index: -1;         /* z-index controls the 'layers', 1 is the lowest so its behind the lowest */
 }
-  
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    height: 100vh;
+}
+
+.box{
+    width: 650px;
+    height: 150px;
+    border: 3px solid #324ab2;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: blanchedalmond;
+}
+
+
+/*-----------------------------------ANIMATIONS---------------------------------- */
+
 @keyframes Spin{            /* Spin animation   */
     from {
         transform: translate(-50%, -50%) rotate(0deg);
@@ -206,7 +257,7 @@ html{
 }
 
 
-/*@keyframes spinAway {                 saved this here for future buttons 
+@keyframes spinAway {                 
     0% {
         transform: rotate(0deg) scale(1);
         scale: 1;
@@ -219,18 +270,4 @@ html{
         transform: rotate(360deg) translateX(200px) scale(0.5);
         scale: 2;
     }
-} */
-
-
-.Intro {
-    font-size: xx-large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    color: blanchedalmond;
-    margin-bottom: 10px;
-}
-
-
-.Hobbies {
-    text-align: center;
-}
+} 
