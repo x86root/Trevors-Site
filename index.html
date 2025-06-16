@@ -6,12 +6,10 @@
     <title>Trevor's Site</title>
     <link rel="stylesheet" href ="style.css">
 </head>
-<body>
-
-    <button class="collapBtn">Toggle Sidebar</button>  
+<body> 
                                         
     <div id="clockDate"></div>
-    <script>                 /* inline JavaScript, I had thought of doing this for some time, I saw functions on Stack Overflow for mins, days, etc  */
+    <script>                 /* inline JavaScript for date & time  */
                                     /*https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date  */
         
         function updateClock() {            /* declaring a function in JS. Spaced this way for easier reading*/
@@ -48,77 +46,59 @@
     </script>
 
 
-
-
-    <section class ="MainPage">
-    <h1>The beginning</h1> <img src ="jedilinuxpenguin.avif" alt = "WinBlows">
-    <br><br>
-    <p class="Intro">This is the start of Trevor's Site...
-                    <br><br>
-                     C++, Python, Visual Basic. Linux user by heart
-    </p>
-    </section>
-    <br><br>
-    
-    <div class = "container1">
-    <img src="btnBckgrnd.webp" alt = "TheInnards">
-    <a href="aboutme.html"> <button class="AboutBtn"> About Me </button>
-    </a>
-    </div>
-    <br><br><br>
-
     <ul>
-    <div class="Sidebar">
-        <img src="batman.jpg">
-        <p>
-            Welcome to my Site!<br>
-            Check out some of my links!         
-        </p>
+    <div class="topbar">
+        <img src ="jedilinuxpenguin.png" alt = "WinBlows">
         <br>
     <a href="codingactivities.html">My Coding Activities</a>
     <br><br>
-    <a href="https://github.com/tbelt890">GitHub Account w/ Code</a>                   
+    <a href="https://github.com/tbelt890">GitHub Account w/ Code</a>
+    <br><br>                
+    <a href="https://www.codewars.com/users/compilerBreaker">Visit my CodeWars Page!</a>
     </div>
     </ul>
 
 
+    <section class ="mainpage">
+            <h1>    Welcome to my Site! <br><br>
+            Check out some of my links above or click the button below! 
+            <br> Enjoy the site!
+    </h1>
+    <br><br>
+                            
+    <button class="scrollbtn" onclick="scrollToSection()">Introduction </button>
+    </section>
+    <script> /* JS function scrolls to section named target box */
+        function scrollToSection() {
+            document.getElementById("target-box").scrollIntoView({behavior: "smooth"});
+        }
+    </script>
+
+    <p class="Intro">
+                    <br><br>
+                     This website was single handedly designed and created using HTML5, CSS, and JavaScript by Myself
+    
+    </p>
+
+    
+    <div class = "container1">
+    <img src="btnBckgrnd.webp" alt = "TheInnards">
+    <a href="aboutme.html"> <button class="projectbtn"> Projects </button>
+    </a>
+    </div>
+    <br><br><br>
+
+
 <br><br>
-<section class="Hobbies">
-    <h1> Outside of coding and computers: </h1>
-</section>
-
-<script>    /*Same spacing as above JS so I could comment for later  */
-            /* These comments help me when i come back to look at the code and try to fix/add */
-
-    document.addEventListener("DOMContentLoaded", function() {
-        /*adds an 'event listener' to HTML doc. "DOMContent" makes script run ONLY after HTML is loaded   */
-
-        const sidebar = document.querySelector(".Sidebar");
-                        /*document represents Document Object Model, references the entire HTML page (index.html) */
-
-        const sidebtn = document.querySelector(".collapBtn");   /* sets var to be the class collapBtn */
-                            /*querySelector lets you select a class or more complex Selectors - this being the collapBtn class */
-
-        sidebtn.addEventListener("click", function() {
-            /* creates a eventListener for sideBtn this being for mouse click */
-            /* can use other events ie. mousehover*/
-
-            sidebar.classList.toggle("hidden"); /* this toggles the 'hidden' CSS code to close the sidebar */ 
-
-
-            sidebtn.classList.toggle("fall");   /* toggles the animation for sidebtn  */
-
-            setTimeout(()=>{
-                /*delays whatever is in block this one being for the animation */
-                    sidebtn.classList.remove("fall");
-
-            }, 500);  /* delays 500 millisecond, then removes fall from button */ 
-        });       
-                /*when clicking the button, it hides the sidebar and triggers the fall animation */
-
-            /* JavaScript is case sensitive, must ensure proper lower or uppercase even for classes/id's */
-    });      
-</script>
-
+    <div class="container2">
+    <div class="box" id="target-box">       
+        <section class="content">
+    <h1> My Coding Journey </h1>
+        </section>
+    </div>
+    </div>
+<footer class="contact">
+    <p>Have a question or want to collaborate?  </p>
+</footer>
 </body>
 </html>
