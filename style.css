@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 html{
@@ -45,7 +47,7 @@ html{
     color: bisque;
 }
 
-
+/* Sidebar with hyperlinks*/
 .topbar {
     display: flex;
     flex-direction: row;
@@ -97,7 +99,8 @@ html{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: italic;
     color: blanchedalmond;
-    margin-bottom: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     text-align: center;
 }
 
@@ -131,7 +134,7 @@ html{
     font-size: 17px;
     color: #e0e0e0;
     border-style: double;
-    border-color: black;
+    border-color: #ffffffc6;
     background-color: #007fff;
     padding: 5px 10px;
     border-radius: 5px;
@@ -146,7 +149,8 @@ html{
     align-items: center;
     background: linear-gradient(to right, palegoldenrod, lightseagreen);
     color: black;
-    border: none;
+    border-style: ridge;
+    border-color: #b29a32;
     font-size: 16px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 30px 30px;
@@ -167,6 +171,7 @@ html{
 }
 
 .projectbtn:hover{
+    transition: transform 0.2s ease;
     animation: Spin 10s linear infinite;
   }
 /*-----------------------------------SIDEBAR UI----------------------------------------------- */
@@ -188,6 +193,9 @@ html{
     width: 100vw;
     height: 300px;
     z-index: -1;         /* z-index controls the 'layers', 1 is the lowest so its behind the lowest */
+
+    border-style: ridge;
+    border-color: #b29a32;
 }
 
 .container2 {
@@ -200,22 +208,90 @@ html{
 
 .box{
     width: 650px;
-    height: 150px;
-    border: 3px solid #324ab2;
+    border: 3px solid #b29a32;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    background: linear-gradient(to bottom, #324ab2, #024b95);
 
 }
 
 .content {
-    display: flex;
-    align-items: center;
+    margin-bottom: 10px;
+}
+
+#metext{
     justify-content: center;
-    height: 100vh;
+    text-align: center;
+    word-spacing: 8px;
+}
+
+.logostop {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.logostop img{
+    width: 60px;
+    height: auto;
+    padding: 5px;
+    background-color: #36454f;
+    border-style: groove;
+    border-color: #b29a32;
+}
+
+.logomid, .logobottom {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.logomid img{
+    width: 70px;
+    height: auto;
+    background: linear-gradient(to bottom, #36454f, #5db4bd);
+    border-style: groove;
+    border-color: #b29a32;
+}
+
+.logobottom img{
+    width: 70px;
+    height: auto;
+}
+
+/* Font and Text color for split sections of content*/
+.content, #distros{
+    text-shadow: 8px 2px 4px rgba(0, 0, 0, 0.5);
     color: blanchedalmond;
+}
+
+
+#distros img{
+    width: 60px;
+    height: auto;
+    padding: 5px;
+    margin-top: 50px;
+}
+
+#distros p{
+    margin-top: 100px;
+}
+
+.contact {
+    text-align: center;
+    padding: 20px;
+    margin-top: 300px;
+    margin-bottom: 200px;
+
+    color: silver;
 }
 
 
