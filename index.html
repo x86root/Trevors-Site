@@ -48,47 +48,107 @@
 
     <ul>
     <div class="topbar">
-        <img src ="images/jedilinuxpenguin.png" alt = "WinBlows">
-        <br>
     <a href="codingactivities.html">My Coding Activities</a>
     <br><br>
-    <a href="https://github.com/x86root">GitHub Account & Repositories</a>
+    <a href="https://github.com/x86root">Request My Resume!</a>
     <br><br>                
     <a href="https://www.codewars.com/users/compilerBreaker">Visit my CodeWars Page!</a>
+    <a href="https://www.codewars.com/users/compilerBreaker">I'm Also an Author!</a>
     </div>
     </ul>
 
+    <!-- JavaScript animation to produce background, WIP. Commented to repurpose
 
+    <div class="binaryBg"></div>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script>
+        document.querySelector(".binaryBg").textContent = "01".repeat(1000);
+        gsap.registerPlugin(ScrollTrigger)
+
+            gsap.to(".binaryBg", {
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: ".topbar",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true
+                }
+            });
+
+            gsap.to("binaryBg", {
+                y: "-100vh",
+                duration: 20,
+                repeat: -1,
+                ease: "linear"
+            });
+    </script>
+        -->
+    <div class="hidden-text">
     <section class ="mainpage">
             <h1>    Welcome! <br><br>
             Check out some of my links above or click the button below! 
             <br> Enjoy the site!
     </h1>
     <br><br>
-                            
+                                    <!--  when button is clicked, calls scroll to section function. -->                
     <button class="scrollbtn" onclick="scrollToSection()">Introduction </button>
     </section>
+    </div>
+
     <script> /* JS function scrolls to section named target box */
         function scrollToSection() {
             document.getElementById("target-box").scrollIntoView({behavior: "smooth"});
         }
     </script>
 
-    <p class="Intro">
-                    <br><br>
-                     This website was single handedly designed and created using HTML5, CSS, and JavaScript by myself
+    <div class="hidden-text">
+        <p class="Intro">
+            <br><br>
+            This website was single handedly designed and created using HTML5, CSS, and JavaScript by myself
     
-    </p>
+        </p>
+    </div>
+
+<script>
+    // defined reusable function for revealing elements based on scroll
+    function initScrollReveal(selector = '.hidden-text', threshold = 0.1) {
+
+    // create new IntersectionObserver to monitor visibility
+    const observer = new IntersectionObserver((entries, obs) => {
+
+    // loop through everything observed
+      entries.forEach(entry => {
+
+    // check if the element is currently visible in viewport
+        if (entry.isIntersecting) {
+    //add visible class to trigger CSS animation
+          entry.target.classList.add('visible');
+
+    // stop displaying the item when not in view, for performance
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold });      // set how much of the element is visible for trigger
+
+    // modular aspect, checks every element matching selector and observes them
+    document.querySelectorAll(selector).forEach(el => observer.observe(el));
+}
+    // initialize scroll reveal for all elements in class .hiddentext
+initScrollReveal('.hidden-text');
+</script>
 
 
 
 <br><br>
     <div class="container2">
+                            <!-- target-box from ScrolltoSection -->
     <div class="box" id="target-box">       
         <section class="content">
     <h1> My Coding Journey </h1>
             <br><br>
     <p id="metext"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <header id="techstack">Tech Stack</header>
             <div class="logostop">
     <img src="images/c++.svg" alt="cpp">
     <img src="images/python.svg" alt="py">
@@ -113,8 +173,9 @@
     <img src="images/ubuntu.svg" alt="ubuntu">
     </section>
 
-    </div>
-    </div>
+            </div>
+         </div>
+
 
     <div class = "container1">
     <img src="images/btnBckgrnd.webp" alt = "TheInnards">
@@ -123,9 +184,21 @@
     </div>
     <br><br><br>
 
-<footer class="contact">
+<div class="contact">
     <p>Have a question or want to collaborate?  </p>
 
+</div>
+
+<footer class="site-footer">
+  <div class="social-icons">
+    <a href="https://github.com/yourusername" target="_blank"><img src="github-icon.svg" alt="GitHub"></a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
+    <a href="mailto:you@example.com"><img src="email-icon.svg" alt="Email"></a>
+  </div>
+  <p>&copy; <span id="year"></span> Trevor Belt| Crafted with care</p>
 </footer>
+    <script> /* Gets dynamic year for footer section*/
+            document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
