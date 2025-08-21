@@ -8,6 +8,17 @@
 </head>
 <body> 
                                         
+
+
+
+    <ul>
+    <div class="topbar">
+    <a href="codingactivities.html">My Coding Activities</a>
+    <br><br>
+    <a href="https://github.com/x86root">Request My Resume!</a>
+    <br><br>                
+    <a href="https://www.codewars.com/users/compilerBreaker">Visit my CodeWars Page!</a>
+    <a href="https://www.codewars.com/users/compilerBreaker">I'm Also an Author!</a>
     <div id="clockDate"></div>
     <script>                 /* inline JavaScript for date & time  */
                                     /*https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date  */
@@ -32,7 +43,7 @@
         const timeString = hours + ":" + mins + ":" + seconds;  /*const var timeString, uses str concatenation to print as one*/
         const dateString = month + "-" + day + "-" + year;
 
-        document.getElementById("clockDate").innerHTML = timeString + "<br>" + dateString; 
+        document.getElementById("clockDate").innerHTML = 'Welcome to my site! Today is ' + dateString + '. Currently it is ' + timeString ; 
         /*doc.getElbyID(name of <div>) */   
         }
                                             /*innerHTML retrieves the HTML content inside of an element */
@@ -44,16 +55,6 @@
         /*calls it right after updating to ensure theres no delay */
         updateClock()
     </script>
-
-
-    <ul>
-    <div class="topbar">
-    <a href="codingactivities.html">My Coding Activities</a>
-    <br><br>
-    <a href="https://github.com/x86root">Request My Resume!</a>
-    <br><br>                
-    <a href="https://www.codewars.com/users/compilerBreaker">Visit my CodeWars Page!</a>
-    <a href="https://www.codewars.com/users/compilerBreaker">I'm Also an Author!</a>
     </div>
     </ul>
 
@@ -195,7 +196,7 @@ initScrollReveal('.hidden-text');
     <a href="https://linkedin.com/in/yourusername" target="_blank"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
     <a href="mailto:you@example.com"><img src="email-icon.svg" alt="Email"></a>
   </div>
-  <p>&copy; <span id="year"></span> Trevor Belt| Crafted with care</p>
+  <p>&copy; <span id="year"></span> Trevor Belt| Crafted with care☺</p>
 </footer>
     <script> /* Gets dynamic year for footer section*/
             document.getElementById("year").textContent = new Date().getFullYear();

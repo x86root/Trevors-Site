@@ -13,7 +13,8 @@ body{
   background: linear-gradient(to right, #1e1e2f, #19215d); /*keep bg color */
   color: #19215d;
   margin: 0;
-
+  position: relative;
+  height: 100vh;
 
 }
 
@@ -60,6 +61,7 @@ body{
 /* Sidebar with hyperlinks*/
 .topbar {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     gap: 10px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
@@ -75,6 +77,21 @@ body{
     
 }
 
+#clockDate {                    /* RTC i made through javascript - mostly a feature for mobile since computers have this by default */
+    position: fixed;
+    height: auto;
+    width: auto;                    /* 'auto' adjusts the width dynamically */
+    top: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    color: #e0e0e0;
+    border-style: dotted;
+    border-color: #ffffffc6;
+    padding: 5px 10px;
+    border-radius: 2px;
+
+}
 
 /*----------------------------------------------------------------- */
 
@@ -122,6 +139,7 @@ body{
                     0 0 100px #007fff, 0 0 200px #af08ff;
                 }
 
+
 .Intro {
     font-size: xx-large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -164,23 +182,6 @@ body{
 .mainpage h1{
     padding: 100px;
 }
-
-#clockDate {                    /* RTC i made through javascript - mostly a feature for mobile since computers have this by default */
-    position: fixed;
-    height: auto;
-    width: auto;                    /* 'auto' adjusts the width dynamically */
-    top: 90%;
-    right: 10px;
-    font-size: 17px;
-    color: #e0e0e0;
-    border-style: double;
-    border-color: #ffffffc6;
-    background-color: #007fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-
-}
-
 
 .projectbtn{
     display: flex;
@@ -343,6 +344,12 @@ body{
   padding: 20px;
   background-color: #20038b;
   border: 1px solid #9e9e9e;
+  color: #e9e0e0da;
+  font-weight: bold;
+}
+.site-footer a{
+    color: #b29a32;
+    font-weight: bolder;
 }
 
 .social-icons a img {
@@ -407,3 +414,12 @@ body{
         scale: 2;
     }
 } 
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
