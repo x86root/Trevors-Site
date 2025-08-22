@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
 
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: monospace;
+    box-sizing: border-box;
 }
 
 html{
-    background-color: #19215d;
+    background: linear-gradient(to right, #1e1e2f, #19215d);
+    overflow-x: hidden;
 }
 
 body{
@@ -15,13 +17,22 @@ body{
   margin: 0;
   position: relative;
   height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 
 }
 
 @media (max-width: 480px) {         /* this says if screen size is below 480 pixels, apply this */
-    .Sidebar {
-        width: 0; 
-        transition: width 0.3s ease;        /* hides the sidebar for lower screens */
+    .project-grid {
+        padding: 20px 10px;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1400px) {
+    .project-grid {
+        padding-left: calc((100vw - 1200px) / 2);
+        padding-right: calc((100vw - 1200px) / 2);
     }
 }
 
@@ -56,6 +67,8 @@ body{
 .topbar a:hover {
     color: bisque;
     transform: scale(1.2);
+    border-style: groove;
+    border-radius: 1px;
 }
 
 /* Sidebar with hyperlinks*/
@@ -84,6 +97,7 @@ body{
     top: 75%;
     margin-left: auto;
     margin-right: auto;
+    font-family: monospace;
     font-size: 15px;
     color: #e0e0e0;
     border-style: dotted;
@@ -128,21 +142,26 @@ body{
     transform: translate(-50%, -50%);
 
     background: #324ab2;
-    border: 2px solid #000000;
+    border: 2px groove #000000;
     box-shadow: 0 0 5px #007fff, 0 0 5px #af08ff;
     color: azure;
-}
+    font-family:monospace;
+    font-size: large;
+    font-weight: bold;
+    }
 
 .scrollbtn:hover{
         box-shadow: 0 0 5px #007fff, 0 0 5px #af08ff,
                     0 0 25px #007fff, 0 0 50px #af08ff,
                     0 0 100px #007fff, 0 0 200px #af08ff;
-                }
-
+        border-style: groove;
+        border-color: #07b807;
+        animation: flicker 1.5s infinite;
+    }
 
 .Intro {
     font-size: xx-large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: monospace;
     font-style: italic;
     color: blanchedalmond;
     margin-top: 100px;
@@ -244,6 +263,9 @@ body{
     justify-content: center;
     margin-top: 100px;
     height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, #1e1e2f, #19215d);
+    color: #19215d;
 }
 
 .box{
@@ -257,7 +279,6 @@ body{
     flex-direction: column;
 
     background: linear-gradient(to bottom, #324ab2, #024b95);
-
 }
 
 .content {
@@ -328,6 +349,60 @@ body{
 
 #distros p{
     margin-top: 100px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.project-card {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.project-title {
+  color: #fff;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  text-align: center;
 }
 
 .contact {
@@ -422,4 +497,9 @@ body{
   50% {
     transform: translateY(-10px);
   }
+}
+
+@keyframes flicker {
+  0%, 100% { text-shadow: 0 0 2px #0ff, 0 0 5px #0ff; }
+  50% { text-shadow: 0 0 4px #0ff, 0 0 10px #0ff; }
 }
