@@ -207,9 +207,21 @@ initScrollReveal('.hidden-text');
 
 <footer class="site-footer">
   <div class="social-icons">
-    <a href="https://github.com/yourusername" target="_blank"><img src="github-icon.svg" alt="GitHub"></a>
-    <a href="https://linkedin.com/in/yourusername" target="_blank"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
-    <a href="mailto:you@example.com"><img src="email-icon.svg" alt="Email"></a>
+    <a href="https://github.com/x86root" target="_blank"><img src="images/codicon--github.svg" alt="GitHub"></a>
+    <a href="https://instagram.com/builtbytrevor/" target="_blank"><img src="images/mdi--instagram.svg" alt="Instagram"></a>
+    <span id="email-link"><img src="/images/email.svg"></span>
+
+ <script> /* JS for email, bots don't see this in raw HTML */
+ document.addEventListener("DOMContentLoaded", ()=> {
+  const user = "trevor";
+  const domain = "trevorbelt.dev";
+  const email = `${user}@${domain}`;
+  const link = document.createElement("a");
+  link.href = `mailto:${email}`;
+  link.textContent = "Email Me";
+  document.getElementById("email-link").appendChild(link);
+    });
+ </script> 
   </div>
   <p>&copy; <span id="year"></span> Trevor Belt | Crafted with care </p>
 </footer>

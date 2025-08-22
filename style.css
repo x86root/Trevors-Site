@@ -358,6 +358,7 @@ body{
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  margin-top: 50px;
 }
 
 .project-card {
@@ -427,6 +428,13 @@ body{
     font-weight: bolder;
 }
 
+#email-link a{
+    color: #b29a32;
+    font-weight: bolder;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
 .social-icons a img {
   width: 24px;
   margin: 0 10px;
@@ -435,6 +443,10 @@ body{
 
 .social-icons a:hover img {
   transform: scale(1.2);
+}
+
+#email-link a:hover{
+    transform: scale(1.2);
 }
 
 /*-----------------------------------ANIMATIONS---------------------------------- */
