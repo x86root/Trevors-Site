@@ -257,6 +257,46 @@ body{
     border-color: #b29a32;
 }
 
+#script1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-family: monospace;
+    font-style: italic;
+    color: white;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: auto;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid #324ab2;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease;
+
+
+    background: linear-gradient(135deg, #2c3e50, #a06eef)
+}
+
+#script1 img{
+    height: 32px;       /* Rough height as can't get image currently*/
+    margin-right: 12px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+
+}
+
+#script1 a {        /*Controls link itself within oval */
+    color: blanchedalmond;
+    transition: color 0.3s ease;
+
+}
+
+#script1 a:hover{
+    color: #00ff48;
+}
+
 .container2 {
     display: flex;
     align-items: center;
