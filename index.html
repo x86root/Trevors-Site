@@ -7,68 +7,33 @@
     <link rel="stylesheet" href ="style.css">
 </head>
 <body> 
-                                        
 
-
-
-    <div class="topbar">
-    <a href="codingactivities.html">My Coding Activities</a>
-    <br><br>
-    <a href="https://github.com/x86root">Request My Resume!</a>
+<!-- Main content -->
+<div id="main-content" style="display: none;">
+  <div class="topbar">
+    <a href="https://github.com/x86root">Request my Resume</a>
     <br><br>                
-    <a href="https://www.codewars.com/users/compilerBreaker">Visit my CodeWars Page!</a>
-    <a href="https://www.codewars.com/users/compilerBreaker">I'm Also an Author!</a>
+    <a href="https://www.codewars.com/users/compilerBreaker">Visit my CodeWars Page</a>
+    <a href="codingactivities.html">I'm also an Author</a>
+    <a href="https://www.codewars.com/users/compilerBreaker">Tutorials/Documentation</a>
     <div id="clockDate"></div>
+</div>  
+</div>  
 
-    </div>
+<!-- splash/loading screen -->
+<div id="splash">
+  <div class="splash-content">
+    <h1 class="welcome-text">Entering Trevor's Site</h1>
+  </div>
+  <div class="binaryBg"></div>
+</div>
 
-    <div class="hidden-text">
-    <section class ="mainpage">
-            <h1>    Welcome! <br><br>
-            Check out some of my links above or click the button below! 
-            <br> Enjoy the site!
-    </h1>
-    <br><br>
-                                    <!--  when button is clicked, calls scroll to section function. -->                
-    <button class="scrollbtn" onclick="scrollToSection()">Introduction </button>
-    </section>
-    </div>
+<!-- Intro section displaying welcome and ascii art -->
+<div id="intro" style="display: none;">
+  <h1 class="welcome-text">Welcome!</h1>        <!-- Reset -->
+  <pre id="vader" style="display: none;"></pre>
+</div>
 
-    <div class="hidden-text">
-        <p class="Intro">
-            <br><br>
-            This website was single handedly designed and created using HTML5, CSS, and JavaScript by myself
-    
-        </p>
-    </div>
-
-<script>
-    // defined reusable function for revealing elements based on scroll
-    function initScrollReveal(selector = '.hidden-text', threshold = 0.1) {
-
-    // create new IntersectionObserver to monitor visibility
-    const observer = new IntersectionObserver((entries, obs) => {
-
-    // loop through everything observed
-      entries.forEach(entry => {
-
-    // check if the element is currently visible in viewport
-        if (entry.isIntersecting) {
-    //add visible class to trigger CSS animation
-          entry.target.classList.add('visible');
-
-    // stop displaying the item when not in view, for performance
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold });      // set how much of the element is visible for trigger
-
-    // modular aspect, checks every element matching selector and observes them
-    document.querySelectorAll(selector).forEach(el => observer.observe(el));
-}
-    // initialize scroll reveal for all elements in class .hiddentext
-initScrollReveal('.hidden-text');
-</script>
 
 <div id="script1">
 <img src="images/windows.svg"  />
@@ -148,7 +113,10 @@ initScrollReveal('.hidden-text');
   </div>
   <p>&copy; <span id="year"></span> Trevor Belt | Crafted with care </p>
 </footer>
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
+
 
