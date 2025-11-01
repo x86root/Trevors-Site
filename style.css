@@ -1,33 +1,38 @@
 * {
     margin: 0;
     padding: 0;
-
     font-family: 'Fira Code', 'Courier New', Courier, monospace;
     box-sizing: border-box;
 }
 
-html{
-    background: linear-gradient(to right, #1e1e2f, #19215d);
-    overflow-x: hidden;
+html {
+  background: linear-gradient(to right, #1e1e2f, #19215d);
+  overflow-x: hidden;
+  scrollbar-width: none;         /* Hides scrollbar in Firefox */
+  -ms-overflow-style: none;      /* and IE/Edge */
 }
 
-body{
-  background: linear-gradient(to right, #1e1e2f, #19215d); /*keep bg color */
+body {
+  background: linear-gradient(to right, #1e1e2f, #19215d); /* Keep bg color */
   color: #19215d;
   margin: 0;
   position: relative;
-  min-height: 100vh;     /* makes page grow with content*/
+  min-height: 100vh;             /* Makes page grow with content */
   width: 100%;
   overflow-x: hidden;
-  overflow: auto; /* makes scrolling stay enabled */
-  scrollbar-width: none; /* disables scrollbar for Firefox */
+  overflow-y: auto;              /* vertical scrolling only */
 
   line-height: 1.6;
   letter-spacing: 0.5px;
+
+  scrollbar-width: none;         /* Done in both body and html to ensure its not visible */
+  -ms-overflow-style: none;      /* A redundant safety check */
 }
 
-body::-webkit-scrollbar {
-  display: none; /* does the same for Chrome, Safari, Edge */
+/* Hide scrollbar in Chrome, Safari, Edge. Meant for cross platform compatibility */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;
 }
 
 @media (max-width: 480px) {         /* this says if screen size is below 480 pixels, apply this */
@@ -660,3 +665,4 @@ body.loading {
   0%   { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(-100%); opacity: 0; }
 }
+
