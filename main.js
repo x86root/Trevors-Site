@@ -193,8 +193,11 @@ window.addEventListener("load", () => {
         // Show ASCII art only after intro is visible
         setTimeout(() => {
           if (vader) {
-            vader.style.display = "block";
-            typeArt();
+            // If screen width is smaller then 600px (ie. phones), it skips the ascii art
+              if (window.innerWidth >= 600) {
+                vader.style.display = "block";
+                   typeArt();
+                  }
           }
         }, 500); // small delay to ensure intro is rendered
       }
