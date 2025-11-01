@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 
-    font-family: monospace;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
     box-sizing: border-box;
 }
 
@@ -16,10 +16,18 @@ body{
   color: #19215d;
   margin: 0;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;     /* makes page grow with content*/
   width: 100%;
   overflow-x: hidden;
+  overflow: auto; /* makes scrolling stay enabled */
+  scrollbar-width: none; /* disables scrollbar for Firefox */
 
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* does the same for Chrome, Safari, Edge */
 }
 
 @media (max-width: 480px) {         /* this says if screen size is below 480 pixels, apply this */
@@ -36,7 +44,7 @@ body{
     }
 }
 
-/* Unordered list, used this for the links */
+/*----------------------HTML Related content ^ Topbar with hyperlinks------------------------------*/
 
 .topbar img{
     height: 200px;
@@ -107,25 +115,106 @@ body{
 
 }
 
-/*----------------------------------------------------------------- */
 
-/*.binaryBg 
-{
-  position: fixed;        /* Sticks to the viewport 
+#splash {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;           /* Full viewport width 
-  height: 100vh;          /* Full viewport height 
-  z-index: -1;            /* Sits behind other content 
-  color: rgba(0, 255, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.binaryBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
   font-family: monospace;
   font-size: 12px;
-  white-space: pre-wrap;
-  pointer-events: none;   /* Prevents interaction 
-  padding: 20px;
+  color: rgba(0, 255, 0, 0.3);
+  white-space: pre;
+  line-height: 1;
   overflow: hidden;
-} */
+  pointer-events: none;
+  z-index: 0;
+}
 
+
+#splash h1 {
+  z-index: 1;
+}
+
+.splash-content {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+body.loading {
+  overflow: hidden;
+}
+
+
+/*-----------------------Splash then Content------------------------------------------ */
+
+#intro {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to right, #1e1e2f, #19215d);
+  color: white;
+  overflow: hidden;
+  visibility: hidden; /* hidden until JS fades it in */
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+
+.intro-content {
+  max-width: 90%;
+  text-align: center;
+  padding: 40px;
+}
+
+#welcome-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  overflow: hidden;
+}
+
+.welcome-text {
+  font-size: 3rem;
+  color: blanchedalmond;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#vader {
+  font-family: monospace;
+  font-size: 14px;
+  white-space: pre-wrap;
+  text-align: center;
+  display: none;
+  max-height: 80vh;
+  overflow-y: auto;
+}
 
 .scrollbtn {
     display: flex;
@@ -158,6 +247,7 @@ body{
         border-color: #07b807;
         animation: flicker 1.5s infinite;
     }
+
 
 .Intro {
     font-size: xx-large;
@@ -554,4 +644,19 @@ body{
 @keyframes flicker {
   0%, 100% { text-shadow: 0 0 2px #0ff, 0 0 5px #0ff; }
   50% { text-shadow: 0 0 4px #0ff, 0 0 10px #0ff; }
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes hold {
+  0%, 100% { transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
 }
